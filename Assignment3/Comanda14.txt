@@ -1,0 +1,4 @@
+Comanda 14
+Clientul test domiciliat la test si emailul test@test.com a achizitionat: 
+Produsul 5 cu pretul de 6 de lei in numar de 5 bucati.
+Total: 30 lei

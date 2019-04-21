@@ -48,5 +48,9 @@ public class Produs {
 		this.pret = pret;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Produsul "+nume+" cu pretul de "+pret+" de lei";
+	}
 }

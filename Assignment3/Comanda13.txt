@@ -1,0 +1,4 @@
+Comanda 13
+Clientul abc domiciliat la a12 .dsa si emailul abc@abc a achizitionat: 
+Produsul lapte cu pretul 20 in numar de 3 bucati.
+Total: 60 lei!

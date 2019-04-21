@@ -9,6 +9,11 @@ import javax.swing.table.TableModel;
 
 public class CreateTables {
 	
+	/**
+	 * It generates a JTable using a given LinkedList of objects.
+	 * @param obj List of objects
+	 * @return the JTable which contains the objects received as parameters
+	 */
 	public static JTable createTables(LinkedList<Object> obj) {
 		if(obj.isEmpty()) return null;
 		String[] coloane = new String[0];

@@ -1,18 +1,9 @@
 package PT2019.Assignment3;
 
 
-import java.sql.Connection;
-import java.util.LinkedList;
-
-import Business.CreateTables;
-import DataAccess.ConnectionFactory;
-import DataAccess.DAO;
-import Model.Client;
-import Model.Comanda;
-import Model.Produs;
 import Presentation.ControllerOpClienti;
+import Presentation.ControllerOpComenzi;
 import Presentation.ControllerOpProduse;
-import Presentation.OperatiiClienti;
 
 /**
  * Hello world!
@@ -41,11 +32,13 @@ public class App
        // System.out.println(DAO.findById(new Client(), 2));
        // System.out.println("Delete by a returnat "+DAO.deleteById(new Client(), 3));
        // OperatiiClienti oc  = new OperatiiClienti(CreateTables.createTables(DAO.findAll(new Client())));
-        ControllerOpClienti a = new ControllerOpClienti();
-        ControllerOpProduse b = new ControllerOpProduse();
+       ControllerOpClienti a = new ControllerOpClienti();
+       ControllerOpProduse b = new ControllerOpProduse();
         //DAO.insert(new Produs(1,"abc",20,30));
        // DAO.insert(new Comanda(1,1,1,50));
        // DAO.insert(new Comanda(2,5,10,50));
+    	//OperatiiComenzi c = new OperatiiComenzi();
+    	ControllerOpComenzi m = new ControllerOpComenzi(b.getView());
     }
 }
 

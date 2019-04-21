@@ -16,10 +16,22 @@ public class DAO {
 	 * The obj's type must exist as a table in the database - there has to
 	 * be a perfect match between the Class Name and the Tabel Name (not case sensitive).
 	 * @param obj will be updated in the table with the name equal with it's class name
-	 * @return 0 if the delete was succesful, otherwise -1 if the insert failed,
-	 * -2 if the Object type isn't right, -3 if the line don't exist in the table
+	 * @return 0 if the delete was succesful, otherwise -1 
 	 */
 	public static int update(Object obj) {
+		Connection db = ConnectionFactory.getConnection();
+		PreparedStatement update = null;
+		try {
+			update = db.prepareStatement(GenerateQuerry.generateUpdateQ(obj));
+			update.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return 0;
+	}
+	
+	public static int updateInsDel(Object obj) {
 		int id = -1;
 		for(Field f:obj.getClass().getDeclaredFields()) {
 			if(f.getName().equals("id"))
@@ -38,7 +50,6 @@ public class DAO {
 			return -3;
 		return insert(obj);
 	}
-	
 	/**
 	 * Insert a row in the table equal to the object type.
 	 * The obj's type must exist as a table in the database - there has to

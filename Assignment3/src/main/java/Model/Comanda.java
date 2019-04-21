@@ -55,7 +55,11 @@ public class Comanda {
 		this.suma = suma;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return id+" "+idcumparator+" "+idprodus+" "+suma;
+	}
 	
 	
 }

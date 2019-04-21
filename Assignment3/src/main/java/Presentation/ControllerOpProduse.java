@@ -18,16 +18,16 @@ public class ControllerOpProduse {
 	
 	public ControllerOpProduse() {
 		view = new OperatiiProduse(CreateTables.createTables(DAO.findAll(new Produs())));
-		view.getTrimiteAdd().addActionListener(new AdaugareClientListener());
-		view.getAdaugare().addActionListener(new AddClientListener());
+		view.getTrimiteAdd().addActionListener(new AdaugareProdusListener());
+		view.getAdaugare().addActionListener(new AddProdusListener());
 		view.getInapoi().addActionListener(new BackButtonListener());
-		view.getEditare().addActionListener(new EditClientListener());
-		view.getTrimiteEdit().addActionListener(new EditareClientListener());
-		view.getStergere().addActionListener(new DeleteClientListener());
-		view.getTrimiteDelete().addActionListener(new StergeClientListener());
+		view.getEditare().addActionListener(new EditProdusListener());
+		view.getTrimiteEdit().addActionListener(new EditareProdusListener());
+		view.getStergere().addActionListener(new DeleteProdusListener());
+		view.getTrimiteDelete().addActionListener(new StergeProdusListener());
 	}
 	
-	class AdaugareClientListener implements ActionListener{
+	class AdaugareProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			if(view.getBucatiT().getText().equals("")||
@@ -51,15 +51,15 @@ public class ControllerOpProduse {
 			}
 			status = ManageProductRequest.addProdus(view.getNumeT().getText(),bucati,pret);
 			if(status != -1)
-				view.getStatusL().setText("Clientul a fost adaugat si are id "+status);
+				view.getStatusL().setText("Produsul a fost adaugat si are id "+status);
 			else
-				view.getStatusL().setText("Clientul nu a putut fi adaugat. Incercati din nou!");
+				view.getStatusL().setText("Produsul nu a putut fi adaugat. Incercati din nou!");
 			view.setTabel(updateTable());
 		}
 		
 	}
 	
-	class AddClientListener implements ActionListener{
+	class AddProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			view.addProdus();
@@ -67,7 +67,7 @@ public class ControllerOpProduse {
 		
 	}
 	
-	class EditClientListener implements ActionListener{
+	class EditProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			view.editProdus();
@@ -75,7 +75,7 @@ public class ControllerOpProduse {
 		
 	}
 	
-	class DeleteClientListener implements ActionListener{
+	class DeleteProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			view.deleteProdus();
@@ -83,7 +83,7 @@ public class ControllerOpProduse {
 		
 	}
 	
-	class EditareClientListener implements ActionListener{
+	class EditareProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			if(view.getBucatiT().getText().equals("")||
@@ -94,15 +94,19 @@ public class ControllerOpProduse {
 				return;
 			}
 			int id;	
+			int bucati;
+			int pret;
 			int status;
 			try {
 				id=Integer.parseInt(view.getIdT().getText());
+				bucati = Integer.parseInt(view.getBucatiT().getText());
+				pret = Integer.parseInt(view.getPretT().getText());
 			}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(view,"Input Gresit");
 				return;
 			}
-			status = ManageProductRequest.updateProdus(id,view.getNumeT().getText(),view.getBucatiT().getText(),view.getPretT().getText());
+			status = ManageProductRequest.updateProdus(id,view.getNumeT().getText(),bucati,pret);
 			if(status == 0)
 				view.getStatusL().setText("Produsul a fost actualizat!");
 			else
@@ -112,7 +116,7 @@ public class ControllerOpProduse {
 		
 	}
 	
-	class StergeClientListener implements ActionListener{
+	class StergeProdusListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			if(view.getIdT().getText().equals("")) {
@@ -149,4 +153,9 @@ public class ControllerOpProduse {
 	private JTable updateTable() {
 		return CreateTables.createTables(DAO.findAll(new Produs()));
 	}
+	public OperatiiProduse getView() {
+		return view;
+	}
+	
+	
 }

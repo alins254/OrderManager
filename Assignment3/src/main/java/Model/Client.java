@@ -60,7 +60,7 @@ public class Client {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "id = " + id;
+		return "Clientul "+nume+" domiciliat la "+address+" si emailul "+email;
 	}
 	
 }
