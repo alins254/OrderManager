@@ -16,7 +16,7 @@ public class GenerateQuerry {
 	}
 	
 	/** Generate the delete by id querry.
-	 * @param Object whichs class will be used to select the right table
+	 * @param obj whichs class will be used to select the right table
 	 * @return the String representing the querry
 	 */	
 	public static String generateDeleteByIdQ(Object obj) {
@@ -51,7 +51,7 @@ public class GenerateQuerry {
 	}
 	
 	/** Generate the insert querry.
-	 * @param Object whichs class will be used to select the right table
+	 * @param obj whichs class will be used to select the right table
 	 * @return the String representing the querry
 	 */
 	public static String generateInsertQ(Object obj) {

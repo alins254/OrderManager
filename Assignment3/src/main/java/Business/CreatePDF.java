@@ -12,10 +12,10 @@ import Model.Produs;
 public class CreatePDF {
 	
 	/** Generate the a file for each given comand querry.
-	 * @param the client who ordered
-	 * @param the product that had been ordered
-	 * @param the comand itself
-	 * @param the number of items bought
+	 * @param c the client who ordered
+	 * @param p the product that had been ordered
+	 * @param cmd the comand itself
+	 * @param bucati the number of items bought
 	 * @return 0 if the file was created, 
 	 * 			-1 otherwise
 	 */
